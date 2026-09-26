@@ -13,27 +13,26 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
 public class ArticleAdapter extends BaseAdapter {
-  private ArrayList<Article> article_list;
+  private ArrayList<UserProfile> user_list;
   private Context context;
-
-  public ArticleAdapter(ArrayList<Article> article_list, Context context) {
-    this.article_list = article_list;
+  public ArticleAdapter(ArrayList<UserProfile> user_list, Context context) {
+    this.user_list = user_list;
     this.context = context;
   }
 
   @Override
   public int getCount() {
-    return article_list.size();
+    return user_list.size();
   }
 
   @Override
   public Object getItem(int position) {
-    return article_list.get(position);
+    return user_list.get(position);
   }
 
   @Override
   public long getItemId(int position) {
-    return article_list.get(position).getArticle_id();
+    return user_list.get(position).getId();
   }
 
   @Override
@@ -50,8 +49,8 @@ public class ArticleAdapter extends BaseAdapter {
       dataitem = (MyView) convertView.getTag();
     }
 
-    Picasso.get().load(article_list.get(position).getArticle_image()).resize(300, 400).centerCrop().into(dataitem.iv_photo);
-    dataitem.tv_caption.setText(article_list.get(position).getArticle_title());
+    Picasso.get().load(user_list.get(position).getAvatar_url()).resize(300, 400).centerCrop().into(dataitem.iv_photo);
+    dataitem.tv_caption.setText(user_list.get(position).getUsername());
     return convertView;
   }
 

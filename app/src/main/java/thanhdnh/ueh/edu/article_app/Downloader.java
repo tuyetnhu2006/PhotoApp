@@ -25,7 +25,7 @@ import okio.Okio;
 public class Downloader {
   public static String cached_file_path = "";
 
-  public static File downloadFile(String url, File cached) {
+  public static File downFileProgress(String url, File cached) {
     OkHttpClient client = new OkHttpClient();
     Request request = new Request.Builder().url(url).build();
 
